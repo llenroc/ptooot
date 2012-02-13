@@ -1,0 +1,15 @@
+﻿<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:TOOOT_Mobile" 
+    SampleProperty="Sample Text Property Value">
+    
+    <local:MainViewModel.Items>
+        <local:Event Description="Sleeping" Hours="8" Category="PaidTimeOff" Date="1/2/2011"/>
+        <local:Event Description="Getting Maried" Hours="8" Category="PaidTimeOff" Date="7/28/2012"/>
+        <local:Event Description="Honeymoon" Hours="56" Category="PaidTimeOff" Date="8/15/2012"/>
+        <local:Event Description="Barfing" Hours="4" Category="Illness" Date="11/2/2012"/>
+        <local:Event Description="Mental Sanity Day" Hours="8" Category="Holiday" Date="2/10/2012"/>
+    </local:MainViewModel.Items>
+    
+</local:MainViewModel>
