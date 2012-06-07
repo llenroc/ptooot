@@ -39,8 +39,10 @@ namespace TOOOT_Mobile
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
-            App.ViewModel.AddNewItem();
-            Pivoter.SelectedItem = LogPivot;
+            var newE = new Event(DateTime.Now,8,"A Day Off");
+            Session.Emp.Events.Add(newE);
+            Session.EventForEditing = newE;
+            NavigationService.Navigate(new Uri("/EventEdit.xaml", UriKind.Relative));
         }
 
         private void ListBoxItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)

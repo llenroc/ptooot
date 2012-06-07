@@ -101,7 +101,7 @@ namespace TOOOT_Mobile
         {
             Session.Emp.Save("tooot.xml");
 
-            ShellTile.ActiveTiles.First().Update(new StandardTileData(){BackContent= ((Session.Emp.PaidTimeOff + Session.Emp.Holiday) /8).ToString() + " Days", BackTitle = "PTO"});
+            ShellTile.ActiveTiles.First().Update(new StandardTileData(){BackContent= (Session.Emp.PaidTimeOff + " Days"), BackTitle = "PTO"});
         }
 
         // Code to execute when the application is closing (eg, user hit Back)

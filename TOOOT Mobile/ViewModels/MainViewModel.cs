@@ -5,6 +5,8 @@ using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Xml.Serialization;
 using Microsoft.Phone.Controls;
+using System.Collections.Generic;
+using System.Windows.Navigation;
 
 
 namespace TOOOT_Mobile
@@ -13,35 +15,13 @@ namespace TOOOT_Mobile
     {
         public MainViewModel()
         {
-            this.Items = new ObservableCollection<Event>();
             LoadData();
         }
 
         /// <summary>
         /// A collection for ItemViewModel objects.
         /// </summary>
-        public ObservableCollection<Event> Items { get; private set; }
-
-        private string _sampleProperty = "Sample Runtime Property Value";
-        /// <summary>
-        /// Sample ViewModel property; this property is used in the view to display its value using a Binding
-        /// </summary>
-        /// <returns></returns>
-        public string SampleProperty
-        {
-            get
-            {
-                return _sampleProperty;
-            }
-            set
-            {
-                if (value != _sampleProperty)
-                {
-                    _sampleProperty = value;
-                    NotifyPropertyChanged("SampleProperty");
-                }
-            }
-        }
+        public List<Event> Items { get { return Session.Emp.Events; } }
 
         public bool IsDataLoaded
         {
@@ -61,7 +41,6 @@ namespace TOOOT_Mobile
                 Session.Emp = (Employee)cerealizer.Deserialize(fileStream);
                 fileStream.Close();
                 Session.Emp.Recompute();
-                Items = Session.Emp.ThisYear.Events;
                 this.IsDataLoaded = true;
             }
             else
@@ -73,30 +52,14 @@ namespace TOOOT_Mobile
             }
         }
 
-        public string RemainingPTO
+        public string StatusText
         {
             get
             {
                 if (IsDataLoaded)
-                    return (Session.Emp.PaidTimeOff / 8).ToString() + " Days";
+                    return (Session.Emp.PaidTimeOff).ToString() + " Days Left";
                 else
-                    return "-- Days";
-            }
-        }
-
-        public string UsedOOO
-        {
-            get
-            {
-                return (Session.Emp.Illness / 8).ToString() + " Days";
-            }
-        }
-
-        public string RemainingHoliday
-        {
-            get
-            {
-                return (Session.Emp.Holiday / 8).ToString() + " Days";
+                    return "-- Days Left";
             }
         }
 
@@ -130,7 +93,7 @@ namespace TOOOT_Mobile
         {
             Session.Emp.Recompute();
             Session.Emp.Save("tooot.xml");
-            NotifyPropertyChanged(string.Empty);
+            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -168,12 +131,6 @@ Illness
              
 ";
             }
-        }
-
-        internal void AddNewItem()
-        {
-            Items.Add(new Event(DateTime.Now,TimeCategory.PaidTimeOff,8,"Day Off"));
-            TriggerCompleteUIRefresh();
         }
 
         public Event SelectedLogEntry { get; set; }

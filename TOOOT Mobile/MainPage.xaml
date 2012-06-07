@@ -22,8 +22,7 @@
         <!--Pivot Control-->
         <controls:Pivot Title="Time Out of Office Tracker" Name="Pivoter">
             <!--Pivot item one-->
-            <controls:PivotItem Header="Summary">
-                <!--Double line list with text wrapping-->
+            <!--<controls:PivotItem Header="Summary">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -37,43 +36,43 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">PTO Remaining:</TextBlock>
                     <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding RemainingPTO}"/>
-                    <TextBlock Grid.Row="2" Style="{StaticResource PhoneTextLargeStyle}">OOO Used:</TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding UsedOOO}"/>
-                    <TextBlock Grid.Row="1" Style="{StaticResource PhoneTextLargeStyle}">Holidays Remaining:</TextBlock>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding RemainingHoliday}"/>
-
                 </Grid>
-            </controls:PivotItem>
+            </controls:PivotItem>-->
 
             <!--Pivot item two-->
             <controls:PivotItem Header="Log" Name="LogPivot">
                 <!--Triple line list no text wrapping-->
-
-                <ListBox Name="Log" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionMode="Single" SelectedItem="{Binding SelectedLogEntry}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <ListBoxItem Tap="ListBoxItem_Tap">
-                                <ListBoxItem.Triggers>
-                                    <!--<EventTrigger RoutedEvent="GotFocus">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding StatusText}" Style="{StaticResource PhoneTextTitle1Style}"/>
+                    <ListBox Grid.Row="1" Name="Log" ItemsSource="{Binding Items, Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding SelectedLogEntry}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <ListBoxItem Tap="ListBoxItem_Tap">
+                                    <ListBoxItem.Triggers>
+                                        <!--<EventTrigger RoutedEvent="GotFocus">
                                         <BeginStoryboard Storyboard="Test" >
                                             
                                         </BeginStoryboard>
                                     </EventTrigger>-->
-                                </ListBoxItem.Triggers>
-                                <StackPanel Margin="0,0,0,12">
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Hours}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,17,0,0"/>
-                                        <TextBlock Text="{Binding Description}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                                    </ListBoxItem.Triggers>
+                                    <StackPanel Margin="0,0,0,12">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Hours}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,17,0,0"/>
+                                            <TextBlock Text="{Binding Description}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Date}" TextWrapping="NoWrap" Margin="36,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                        </StackPanel>
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Date}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                        <TextBlock Text="{Binding Category}" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                    </StackPanel>
-                                </StackPanel>
-                            </ListBoxItem>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </ListBoxItem>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
             </controls:PivotItem>
             <controls:PivotItem Header="Rules">
                 <TextBlock Text="{Binding Rules}"></TextBlock>

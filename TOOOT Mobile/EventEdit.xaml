@@ -34,8 +34,6 @@
                 <TextBox Name="NameBox"/>
                 <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">Hours</TextBlock>
                 <toolkit:ListPicker Name="HourBox" />
-                <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">Type</TextBlock>
-                <toolkit:ListPicker Name="TypeBox" />
                 <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}">Date</TextBlock>
                 <toolkit:DatePicker Name="DateBox" />
             </StackPanel>

@@ -7,12 +7,12 @@ using System.Xml.Serialization;
 
 namespace TOOOT_Mobile
 {
-    public enum TimeCategory
-    {
-        PaidTimeOff,
-        Holiday,
-        Illness
-    }
+    //public enum TimeCategory
+    //{
+    //    PaidTimeOff,
+    //    Holiday,
+    //    Illness
+    //}
 
     /// <summary>
     /// A single time off event measured in hours.
@@ -33,20 +33,20 @@ namespace TOOOT_Mobile
                 NotifyChanged(string.Empty);
             }
         }
-        private TimeCategory _cat;
-        [XmlElement]
-        public TimeCategory Category
-        {
-            get
-            {
-                return _cat;
-            }
-            set
-            {
-                _cat = value;
-                NotifyChanged(string.Empty);
-            }
-        }
+        //private TimeCategory _cat;
+        //[XmlElement]
+        //public TimeCategory Category
+        //{
+        //    get
+        //    {
+        //        return _cat;
+        //    }
+        //    set
+        //    {
+        //        _cat = value;
+        //        NotifyChanged(string.Empty);
+        //    }
+        //}
 
         private double _hours;
         [XmlElement]
@@ -66,10 +66,9 @@ namespace TOOOT_Mobile
 
         public Event() { Date = DateTime.Now; }
 
-        public Event(DateTime date, TimeCategory category, double hours, string desc)
+        public Event(DateTime date, double hours, string desc)
         {
             Date = date;
-            Category = category;
             Hours = hours;
             Description = desc;
         }

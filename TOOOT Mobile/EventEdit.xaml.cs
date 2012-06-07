@@ -22,7 +22,7 @@ namespace TOOOT_Mobile
             NameBox.Text = Session.EventForEditing.Description;
             HourBox.SelectedItem = Session.EventForEditing.Hours;
             DateBox.Value = Session.EventForEditing.Date;
-            TypeBox.SelectedItem = Session.EventForEditing.Category.ToString();
+            //TypeBox.SelectedItem = Session.EventForEditing.Category.ToString();
         }
 
         private void prefillListPickers()
@@ -32,27 +32,27 @@ namespace TOOOT_Mobile
                 if (!HourBox.Items.Contains(choice))
                     HourBox.Items.Add(choice);
 
-            var catChoices = new List<string>() { "PaidTimeOff", "Holiday", "Illness" };
-            foreach (var choice in catChoices)
-                if (!TypeBox.Items.Contains(choice))
-                    TypeBox.Items.Add(choice);
+            //var catChoices = new List<string>() { "PaidTimeOff", "Holiday", "Illness" };
+            //foreach (var choice in catChoices)
+            //    if (!TypeBox.Items.Contains(choice))
+            //        TypeBox.Items.Add(choice);
         }
 
         private void ApplicationBarSaveButton_Click(object sender, EventArgs e)
         {
             Session.EventForEditing.Description = NameBox.Text;
             Session.EventForEditing.Hours = (double)HourBox.SelectedItem;
-            Session.EventForEditing.Category = (TimeCategory)Enum.Parse(typeof(TimeCategory), TypeBox.SelectedItem.ToString(), true);
+            //Session.EventForEditing.Category = (TimeCategory)Enum.Parse(typeof(TimeCategory), TypeBox.SelectedItem.ToString(), true);
             Session.EventForEditing.Date = (DateTime)DateBox.Value;
             App.ViewModel.TriggerCompleteUIRefresh();
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void ApplicationBarDeleteButton_Click(object sender, EventArgs e)
         {
-            Session.Emp.ThisYear.Events.Remove(Session.EventForEditing);
+            Session.Emp.Events.Remove(Session.EventForEditing);
             App.ViewModel.TriggerCompleteUIRefresh();
-            NavigationService.GoBack();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void ApplicationBarCancelButton_Click(object sender, EventArgs e)

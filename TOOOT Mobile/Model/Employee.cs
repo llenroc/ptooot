@@ -17,13 +17,9 @@ namespace TOOOT_Mobile
 
         #region To keep the math accurate always Compute() from the year details.
         [XmlIgnore]
-        public int Tenure { get; set; }
+        public double Tenure { get; set; }
         [XmlIgnore]
         public double PaidTimeOff { get; set; }
-        [XmlIgnore]
-        public double Illness { get; set; }
-        [XmlIgnore]
-        public double Holiday { get; set; }
         #endregion
 
         /// <summary>
@@ -40,16 +36,13 @@ namespace TOOOT_Mobile
         [XmlElement]
         public string Name { get; set; }
 
-        /// <summary>
-        /// PTO events are grouped by years.
-        /// </summary>
         [XmlElement]
-        public List<YearDetails> Years { get; set; }
+        public List<Event> Events { get; set; }
 
         /// <summary>
         /// Don't use unless you're sure you know what you're doing.  Defined for [Serializable].
         /// </summary>
-        public Employee() { }
+        public Employee() { Events = new List<Event>(); }
 
         /// <summary>
         /// Default constructor.  Initializes the start date and the active YearDetails objects.
@@ -60,48 +53,8 @@ namespace TOOOT_Mobile
         {
             Name = name;
             StartDate = startDate;
-            Years = new List<YearDetails>();
-            ResetTotals();
-            ValidateYears();
+            Events = new List<Event>();
             Recompute();
-        }
-
-        /// <summary>
-        /// Easy access to the active year to add new events.
-        /// </summary>
-        public YearDetails ThisYear
-        {
-            get
-            {
-                return Years.Last();
-            }
-        }
-
-        private void ResetTotals()
-        {
-            Tenure = 0;
-            Illness = 0;
-            Holiday = 0;
-            PaidTimeOff = 0;
-        }
-
-        /// <summary>
-        /// Adds missing years if the app hasn't been used, or a new year that needs to be added from an anniversary.
-        /// </summary>
-        public void ValidateYears()
-        {
-            List<int> missingYears = new List<int>();
-
-            for (int year = StartDate.Year; year <= DateTime.Now.Year; year++)
-                missingYears.Add(year);
-
-            foreach (int year in Years.Select(detail => detail.Start.Year))
-                missingYears.Remove(year);
-
-            foreach (int year in missingYears)
-                Years.Add(new YearDetails(StartDate.AddDays(365)));
-
-            Years.Sort((d1, d2) => d1.Start.Year.CompareTo(d2.Start.Year));
         }
 
         /// <summary>
@@ -109,9 +62,31 @@ namespace TOOOT_Mobile
         /// </summary>
         public void Recompute()
         {
-            ResetTotals();
-            foreach (YearDetails year in Years)
-                year.ApplyTo(this);
+            var RollOverDate = StartDate.AddDays(365);
+
+            PaidTimeOff = 16;
+            Tenure = 0;
+
+            Events.Sort((e1, e2) => e1.Date.CompareTo(e2.Date));
+
+            foreach (var ptoEvent in Events)
+            {
+                if (ptoEvent.Date > RollOverDate)
+                {
+                    Tenure += 0.5;
+                    PaidTimeOff = Math.Min(PaidTimeOff, 10) + 16 + Tenure;
+                    RollOverDate = RollOverDate.AddDays(365);
+                }
+                PaidTimeOff -= ptoEvent.Hours /8;
+            }
+
+            if (RollOverDate < DateTime.Now)
+            {
+                Tenure += .5;
+                PaidTimeOff = Math.Min(PaidTimeOff, 10) + 16 + Tenure;
+            }
+
+            Events.Reverse();
         }
 
         /// <summary>
