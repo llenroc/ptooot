@@ -2,7 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:TOOOT_Mobile" 
-    SampleProperty="Sample Text Property Value"
     StatusText="A Few Days Remaining">
 
     <local:MainViewModel.Items>

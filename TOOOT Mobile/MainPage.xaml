@@ -14,6 +14,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
+    xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"  
     shell:SystemTray.IsVisible="True">
 
 
@@ -78,17 +79,16 @@
                 <TextBlock Text="{Binding Rules}"></TextBlock>
             </controls:PivotItem>
             <controls:PivotItem Header="Settings" Name="SettingsPivot">
-                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                <Grid x:Name="ContentPanel" Grid.Row="1" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="70"/>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">What is your name?</TextBlock>
-                    <TextBox Grid.Row="1" Name="EmpNameBox" Text="{Binding EmpName, Mode=TwoWay}"/>
-                    <TextBlock Grid.Row="2" Style="{StaticResource PhoneTextLargeStyle}">When did you start?</TextBlock>
-                    <toolkit:DatePicker Grid.Row="3" Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
+                    <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
+                    <toolkit:DatePicker Grid.Row="1" Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
+                    <my:AdControl Grid.Row="3" Width="300" Height="50"  ApplicationId="c49eb4f0-9cff-43aa-9ed8-cc9f8a53dc46" AdUnitId="10038604"/>
                 </Grid>
             </controls:PivotItem>
         </controls:Pivot>
