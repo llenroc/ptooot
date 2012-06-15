@@ -27,7 +27,7 @@ namespace TOOOT_Mobile
 
         private void prefillListPickers()
         {
-            var hourChoices = new List<double>() { 4, 8, 16, 24, 40 };
+            var hourChoices = new List<double>() { 4, 8, 16, 24 };
             foreach (var choice in hourChoices)
                 if (!HourBox.Items.Contains(choice))
                     HourBox.Items.Add(choice);

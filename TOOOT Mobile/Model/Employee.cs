@@ -129,5 +129,7 @@ namespace TOOOT_Mobile
             return result;
         }
         #endregion
+
+        public bool EnableAds { get; set; }
     }
 }

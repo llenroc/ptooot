@@ -89,6 +89,12 @@ namespace TOOOT_Mobile
             }
         }
 
+        public bool ShowAds
+        {
+            get { return Session.Emp.EnableAds; }
+            set { Session.Emp.EnableAds = value; }
+        }
+
         public void TriggerCompleteUIRefresh()
         {
             Session.Emp.Recompute();
