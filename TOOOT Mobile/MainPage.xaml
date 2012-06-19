@@ -78,20 +78,6 @@
             <controls:PivotItem Header="Rules">
                 <TextBlock Text="{Binding Rules}"></TextBlock>
             </controls:PivotItem>
-            <controls:PivotItem Header="Settings" Name="SettingsPivot">
-                <Grid x:Name="ContentPanel" Grid.Row="1" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <StackPanel>
-                    <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
-                    <toolkit:DatePicker Grid.Row="1" Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
-                    </StackPanel>
-                    <my:AdControl Visibility="{Binding ShowAds,Mode=TwoWay}" Grid.Row="1" Width="300" Height="50"  ApplicationId="c49eb4f0-9cff-43aa-9ed8-cc9f8a53dc46" AdUnitId="10038604" Margin="77,0,79,0" />
-
-                </Grid>
-            </controls:PivotItem>
         </controls:Pivot>
     </Grid>
 
@@ -99,6 +85,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="\Icons\appbar.add.rest.png" Text="New" Click="ApplicationBarIconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="\Icons\appbar.feature.settings.rest.png" Text="Settings" Click="ApplicationBarIconButton_Click_1"/>
             <!--<shell:ApplicationBarIconButton IconUri="\Icons\appbar.delete.rest.png" Text="Delete" Click="ApplicationBarIconButton_Click_1" />-->
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

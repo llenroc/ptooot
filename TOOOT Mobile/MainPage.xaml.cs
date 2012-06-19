@@ -29,12 +29,10 @@ namespace TOOOT_Mobile
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             if (!App.ViewModel.IsDataLoaded)
-            {
                 App.ViewModel.LoadData();
-            }
 
-            if (Session.Emp.Name == "New Guy")
-                Pivoter.SelectedItem = SettingsPivot;
+            if (Session.Emp.StartDate == DateTime.Today)
+                NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));  
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -49,6 +47,11 @@ namespace TOOOT_Mobile
         {
             Session.EventForEditing = (Event)Log.SelectedItem;
             NavigationService.Navigate(new Uri("/EventEdit.xaml", UriKind.Relative));
+        }
+
+        private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));
         }
     }
 }

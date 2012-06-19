@@ -45,7 +45,7 @@ namespace TOOOT_Mobile
             }
             else
             {
-                Session.Emp = new Employee("New Guy", DateTime.Now);
+                Session.Emp = new Employee("New Guy", DateTime.Today);
                 Session.Emp.Save("tooot.xml");
                 //var uri = new Uri("/NewUserPage.xaml", UriKind.Relative);
                 //(Application.Current.RootVisual as PhoneApplicationFrame).Navigate(uri);
@@ -117,8 +117,6 @@ namespace TOOOT_Mobile
             get
             {
                 return @"
-Pioneer holiday, personal, and sick time rules	
-
 Holidays   
     Aside from the 8 Company Holidays,
     Employees can choose 1 more holiday.
