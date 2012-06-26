@@ -8,77 +8,40 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728" 
     d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
     xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"  
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="False">
 
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Pivot Control-->
-        <controls:Pivot Title="Time Out of Office Tracker" Name="Pivoter">
-            <!--Pivot item one-->
-            <!--<controls:PivotItem Header="Summary">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="3*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">PTO Remaining:</TextBlock>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource PhoneTextLargeStyle}" Text="{Binding RemainingPTO}"/>
-                </Grid>
-            </controls:PivotItem>-->
-
-            <!--Pivot item two-->
-            <controls:PivotItem Header="Log" Name="LogPivot">
-                <!--Triple line list no text wrapping-->
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="{Binding StatusText}" Style="{StaticResource PhoneTextTitle1Style}"/>
-                    <ListBox Grid.Row="1" Name="Log" ItemsSource="{Binding Items, Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding SelectedLogEntry}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <ListBoxItem Tap="ListBoxItem_Tap">
-                                    <ListBoxItem.Triggers>
-                                        <!--<EventTrigger RoutedEvent="GotFocus">
-                                        <BeginStoryboard Storyboard="Test" >
-                                            
-                                        </BeginStoryboard>
-                                    </EventTrigger>-->
-                                    </ListBoxItem.Triggers>
-                                    <StackPanel Margin="0,0,0,12">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Hours}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,17,0,0"/>
-                                            <TextBlock Text="{Binding Description}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Date}" TextWrapping="NoWrap" Margin="36,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </ListBoxItem>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
-            </controls:PivotItem>
-            <controls:PivotItem Header="Rules">
-                <TextBlock Text="{Binding Rules}"></TextBlock>
-            </controls:PivotItem>
-        </controls:Pivot>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding StatusText}" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <ListBox Grid.Row="1" Name="Log" ItemsSource="{Binding Items, Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding SelectedLogEntry}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Tap="ListBoxItem_Tap">
+                        <StackPanel Margin="0,0,0,12">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Hours}" Style="{StaticResource PhoneTextAccentStyle}" Margin="12,17,0,0"/>
+                                <TextBlock Text="{Binding Description}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Date}" TextWrapping="NoWrap" Margin="36,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ListBoxItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->
@@ -86,7 +49,7 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="\Icons\appbar.add.rest.png" Text="New" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="\Icons\appbar.feature.settings.rest.png" Text="Settings" Click="ApplicationBarIconButton_Click_1"/>
-            <!--<shell:ApplicationBarIconButton IconUri="\Icons\appbar.delete.rest.png" Text="Delete" Click="ApplicationBarIconButton_Click_1" />-->
+            <shell:ApplicationBarIconButton IconUri="\Icons\appbar.questionmark.rest.png" Text="Rules" Click="ApplicationBarIconButton_Click_2"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

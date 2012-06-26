@@ -31,8 +31,8 @@ namespace TOOOT_Mobile
             if (!App.ViewModel.IsDataLoaded)
                 App.ViewModel.LoadData();
 
-            if (Session.Emp.StartDate == DateTime.Today)
-                NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));  
+            //if (Session.Emp.StartDate == DateTime.Today)
+            //    NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));  
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -52,6 +52,11 @@ namespace TOOOT_Mobile
         private void ApplicationBarIconButton_Click_1(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));
+        }
+
+        private void ApplicationBarIconButton_Click_2(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Rules.xaml", UriKind.Relative));
         }
     }
 }

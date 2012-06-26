@@ -80,6 +80,9 @@
       <DependentUpon>NewHire.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -102,6 +105,10 @@
       <SubType>Designer</SubType>
     </DesignData>
     <Page Include="NewHire.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rules.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,7 +147,9 @@
     <Resource Include="Icons\appbar.new.rest.png" />
     <Resource Include="Icons\appbar.next.rest.png" />
     <Resource Include="Icons\appbar.overflowdots.png" />
-    <Resource Include="Icons\appbar.questionmark.rest.png" />
+    <Content Include="Icons\appbar.questionmark.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Icons\appbar.refresh.rest.png" />
     <Content Include="Icons\appbar.save.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
