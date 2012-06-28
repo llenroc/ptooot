@@ -33,25 +33,24 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <StackPanel>
-                <TextBlock Grid.Row="0" Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
-                <toolkit:DatePicker Grid.Row="1" Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
-                <Button Content="Save" Click="Button_Click"></Button>
-            </StackPanel>
-
+            <ScrollViewer>
+                <StackPanel Grid.Row="0">
+                    <TextBlock  Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
+                    <toolkit:DatePicker Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Initial Amount (Days):</TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Accrual Interval (Days):</TextBlock>
+                    <TextBox/>
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Accrual Amount (Days):</TextBlock>
+                    <TextBox/>
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Max Carryover Days:</TextBlock>
+                    <TextBox/>
+                    <toolkit:ToggleSwitch>Tenure Bonus</toolkit:ToggleSwitch>
+                    <TextBox Margin="0,-30,0,0"/>
+                    
+                    <Button Content="Save Settings" Click="Button_Click"></Button>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
-
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
-
 </phone:PhoneApplicationPage>

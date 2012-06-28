@@ -63,19 +63,6 @@ namespace TOOOT_Mobile
             }
         }
 
-        public string EmpName
-        {
-            get
-            {
-                return Session.Emp.Name;
-            }
-            set
-            {
-                Session.Emp.Name = value;
-                Session.Emp.Save("tooot.xml");
-            }
-        }
-
         public DateTime StartDate
         {
             get

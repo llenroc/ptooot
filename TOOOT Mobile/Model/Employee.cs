@@ -30,12 +30,6 @@ namespace TOOOT_Mobile
         [XmlElement]
         public DateTime StartDate { get; set; }
 
-        /// <summary>
-        /// Employee name.  Useful for the UI, but not in the model code.
-        /// </summary>
-        [XmlElement]
-        public string Name { get; set; }
-
         [XmlElement]
         public List<Event> Events { get; set; }
 
@@ -51,7 +45,6 @@ namespace TOOOT_Mobile
         /// <param name="startDate">Start date of the employee.  Don't change it once set.</param>
         public Employee(string name, DateTime startDate)
         {
-            Name = name;
             StartDate = startDate;
             Events = new List<Event>();
             Recompute();
