@@ -75,7 +75,6 @@
     </Compile>
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Event.cs" />
-    <Compile Include="Model\YearDetails.cs" />
     <Compile Include="NewHire.xaml.cs">
       <DependentUpon>NewHire.xaml</DependentUpon>
     </Compile>

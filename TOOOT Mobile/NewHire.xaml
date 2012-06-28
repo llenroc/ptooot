@@ -35,18 +35,18 @@
             </Grid.RowDefinitions>
             <ScrollViewer>
                 <StackPanel Grid.Row="0">
-                    <TextBlock  Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
+                    <TextBlock  Style="{StaticResource PhoneTextLargeStyle}">Start Date:</TextBlock>
                     <toolkit:DatePicker Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
                     <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Initial Amount (Days):</TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Text="{Binding StartAmount, Mode=TwoWay,FallbackValue=16}"></TextBox>
                     <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Accrual Interval (Days):</TextBlock>
-                    <TextBox/>
+                    <TextBox Text="{Binding AccrualInterval, Mode=TwoWay, FallbackValue=365}"/>
                     <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Accrual Amount (Days):</TextBlock>
-                    <TextBox/>
+                    <TextBox Text="{Binding AccrualAmount,Mode=TwoWay, FallbackValue=16}"/>
                     <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Max Carryover Days:</TextBlock>
-                    <TextBox/>
-                    <toolkit:ToggleSwitch>Tenure Bonus</toolkit:ToggleSwitch>
-                    <TextBox Margin="0,-30,0,0"/>
+                    <TextBox Text="{Binding MaxCarryover,Mode=TwoWay, FallbackValue=10}"/>
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Tenure Bonus</TextBlock>
+                    <TextBox Text="{Binding TenureBonus, Mode=TwoWay, FallbackValue=.5}"/>
                     
                     <Button Content="Save Settings" Click="Button_Click"></Button>
                 </StackPanel>

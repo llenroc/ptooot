@@ -29,7 +29,16 @@ namespace TOOOT_Mobile
         /// 
         [XmlElement]
         public DateTime StartDate { get; set; }
-
+        [XmlElement]
+        public float StartAmount { get; set; }
+        [XmlElement]
+        public int AccrualInterval { get; set; }
+        [XmlElement]
+        public float AccrualAmount { get; set; }
+        [XmlElement]
+        public float MaxCarryover { get; set; }
+        [XmlElement]
+        public float TenureBonus { get; set; }
         [XmlElement]
         public List<Event> Events { get; set; }
 
@@ -46,6 +55,11 @@ namespace TOOOT_Mobile
         public Employee(string name, DateTime startDate)
         {
             StartDate = startDate;
+            StartAmount = 16;
+            AccrualInterval = 365;
+            AccrualAmount = 16;
+            MaxCarryover = 10;
+            TenureBonus = .5F;
             Events = new List<Event>();
             Recompute();
         }
@@ -55,9 +69,9 @@ namespace TOOOT_Mobile
         /// </summary>
         public void Recompute()
         {
-            var RollOverDate = StartDate.AddDays(365);
+            var RollOverDate = StartDate.AddDays(AccrualInterval);
 
-            PaidTimeOff = 16;
+            PaidTimeOff = StartAmount;
             Tenure = 0;
 
             Events.Sort((e1, e2) => e1.Date.CompareTo(e2.Date));
@@ -66,17 +80,17 @@ namespace TOOOT_Mobile
             {
                 if (ptoEvent.Date > RollOverDate)
                 {
-                    Tenure += 0.5;
-                    PaidTimeOff = Math.Min(PaidTimeOff, 10) + 16 + Tenure;
-                    RollOverDate = RollOverDate.AddDays(365);
+                    Tenure += TenureBonus;
+                    PaidTimeOff = Math.Min(PaidTimeOff, MaxCarryover) + AccrualAmount + Tenure;
+                    RollOverDate = RollOverDate.AddDays(AccrualInterval);
                 }
                 PaidTimeOff -= ptoEvent.Hours /8;
             }
 
             if (RollOverDate < DateTime.Now)
             {
-                Tenure += .5;
-                PaidTimeOff = Math.Min(PaidTimeOff, 10) + 16 + Tenure;
+                Tenure += TenureBonus;
+                PaidTimeOff = Math.Min(PaidTimeOff, MaxCarryover) + AccrualAmount + Tenure;
             }
 
             Events.Reverse();

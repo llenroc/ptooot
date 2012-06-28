@@ -18,7 +18,7 @@ namespace TOOOT_Mobile
         public NewHire()
         {
             InitializeComponent();
-            Date.Value = Session.Emp.StartDate;
+            DataContext = Session.Emp;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
