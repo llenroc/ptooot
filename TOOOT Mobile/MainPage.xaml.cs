@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Marketplace;
 
 namespace TOOOT_Mobile
 {
@@ -33,6 +34,9 @@ namespace TOOOT_Mobile
 
             //if (Session.Emp.StartDate == DateTime.Today)
             //    NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));  
+            var li = new LicenseInformation();
+            if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
+                Ads.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)

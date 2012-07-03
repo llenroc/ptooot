@@ -23,7 +23,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="Pioneer PTO" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <!--<TextBlock x:Name="ApplicationTitle" Text="Pioneer PTO" Style="{StaticResource PhoneTextNormalStyle}"/>-->
             <TextBlock x:Name="PageTitle" Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
@@ -45,10 +45,12 @@
                     <TextBox Text="{Binding AccrualAmount,Mode=TwoWay, FallbackValue=16}"/>
                     <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Max Carryover Days:</TextBlock>
                     <TextBox Text="{Binding MaxCarryover,Mode=TwoWay, FallbackValue=10}"/>
-                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Tenure Bonus</TextBlock>
+                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Tenure Bonus Days Per Year:</TextBlock>
                     <TextBox Text="{Binding TenureBonus, Mode=TwoWay, FallbackValue=.5}"/>
                     
                     <Button Content="Save Settings" Click="Button_Click"></Button>
+                    <TextBlock Text="Something Missing?"/>
+                    <Button Content="Send Feedback" Click="Button_Click_1" />
                 </StackPanel>
             </ScrollViewer>
         </Grid>

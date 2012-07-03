@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Marketplace;
 
 namespace TOOOT_Mobile
 {
@@ -22,6 +23,10 @@ namespace TOOOT_Mobile
             NameBox.Text = Session.EventForEditing.Description;
             HourBox.SelectedItem = Session.EventForEditing.Hours;
             DateBox.Value = Session.EventForEditing.Date;
+
+            var li = new LicenseInformation();
+            if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
+                Ads.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void prefillListPickers()
