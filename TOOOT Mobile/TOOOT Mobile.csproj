@@ -70,6 +70,9 @@
     <Compile Include="EventEdit.xaml.cs">
       <DependentUpon>EventEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Holidays.xaml.cs">
+      <DependentUpon>Holidays.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="EventEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Holidays.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,7 +161,9 @@
     <Content Include="Icons\appbar.save.rest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Icons\appbar.share.rest.png" />
+    <Content Include="Icons\appbar.share.rest.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Icons\appbar.stop.rest.png" />
     <Resource Include="Icons\appbar.sync.rest.png" />
     <Resource Include="Icons\appbar.transport.ff.rest.png" />

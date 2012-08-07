@@ -58,5 +58,10 @@ namespace TOOOT_Mobile
         {
             NavigationService.Navigate(new Uri("/Rules.xaml", UriKind.Relative));
         }
+
+        private void ApplicationBarIconButton_Click_3(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Holidays.xaml", UriKind.Relative));
+        }
     }
 }

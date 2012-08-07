@@ -1,12 +1,11 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="TOOOT_Mobile.NewHire"
+    x:Class="TOOOT_Mobile.Holidays"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -24,24 +23,26 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="Pioneer PTO" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="Holidays" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
             <StackPanel>
-                <TextBlock  Style="{StaticResource PhoneTextLargeStyle}">Hire Date:</TextBlock>
-                <toolkit:DatePicker  Name="Date" Value="{Binding StartDate, Mode=TwoWay}" />
-                <Button Content="Save" Click="Button_Click"></Button>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">New Year's Day</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Memorial Day</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Independance Day</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Labor Day</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Thanksgiving</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Friday after Thanksgiving</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Christmas Eve</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">Christmas Day</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">New Year's Eve</TextBlock>
+                <TextBlock Style="{StaticResource PhoneTextLargeStyle}">1 Other Day You Choose</TextBlock>
             </StackPanel>
-
         </Grid>
     </Grid>
-
+ 
     <!--Sample code showing usage of ApplicationBar-->
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
