@@ -14,7 +14,6 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"  
     shell:SystemTray.IsVisible="False">
 
 
@@ -43,7 +42,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <my:AdControl Name="Ads" Grid.Row="2" Width="480" Visibility="Collapsed" Height="80"  ApplicationId="c49eb4f0-9cff-43aa-9ed8-cc9f8a53dc46" AdUnitId="10038602"/>
+        <!--<my:AdControl Name="Ads" Grid.Row="2" Width="480" Visibility="Collapsed" Height="80"  ApplicationId="c49eb4f0-9cff-43aa-9ed8-cc9f8a53dc46" AdUnitId="10038602"/>-->
     </Grid>
 
     <!--Sample code showing usage of ApplicationBar-->

@@ -39,31 +39,34 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <ScrollViewer>
-                <toolkit:WrapPanel Grid.Row="0">
-                    <TextBlock  >I was hired on</TextBlock>
-                    <toolkit:DatePicker Name="Date" Width="200" Value="{Binding StartDate, Mode=TwoWay}" />
-                    <TextBlock >and started with </TextBlock>
-                    <TextBox Text="{Binding StartAmount, Mode=TwoWay,FallbackValue=16}"></TextBox>
-                    <TextBlock >days of </TextBlock>
-                    <TextBlock >PTO. Every</TextBlock>
+                <StackPanel>
+                    <toolkit:WrapPanel Grid.Row="0">
+                        <TextBlock  >I was hired on</TextBlock>
+                        <toolkit:DatePicker Name="Date" Width="200" Value="{Binding StartDate, Mode=TwoWay}" />
+                        <TextBlock >and started with</TextBlock>
+                        <TextBox Text="{Binding StartAmount, Mode=TwoWay,FallbackValue=16}"></TextBox>
+                        <TextBlock >days of</TextBlock>
+                        <TextBlock >PTO. Every</TextBlock>
 
-                    <TextBox Text="{Binding AccrualInterval, Mode=TwoWay, FallbackValue=365}"/>
-                    <TextBlock >days,</TextBlock>
-                    <TextBlock >I get </TextBlock>
+                        <TextBox Text="{Binding AccrualInterval, Mode=TwoWay, FallbackValue=365}"/>
+                        <TextBlock >days,</TextBlock>
+                        <TextBlock >I get</TextBlock>
 
-                    <TextBox Text="{Binding AccrualAmount,Mode=TwoWay, FallbackValue=16}"/>
-                    <TextBlock >more days of PTO.</TextBlock>
-                    <TextBlock >Each time, that goes up by</TextBlock>
-                    <TextBox Text="{Binding TenureBonus, Mode=TwoWay, FallbackValue=.5}"/> 
-                    <TextBlock >I can keep</TextBlock>
-                    <TextBox Text="{Binding MaxCarryover,Mode=TwoWay, FallbackValue=10}"/>
-                    <TextBlock>days  each year.</TextBlock>
+                        <TextBox Text="{Binding AccrualAmount,Mode=TwoWay, FallbackValue=16}"/>
+                        <TextBlock >more days of PTO.</TextBlock>
+                        <TextBlock >Each time, that goes up by</TextBlock>
+                        <TextBox Text="{Binding TenureBonus, Mode=TwoWay, FallbackValue=.5}"/>
+                        <TextBlock >I can keep</TextBlock>
+                        <TextBox Text="{Binding MaxCarryover,Mode=TwoWay, FallbackValue=10}"/>
+                        <TextBlock>days  each year.</TextBlock>
 
-                    
+
+
+                    </toolkit:WrapPanel>
                     <Button Content="Save Settings" Click="Button_Click" Margin="0,30,0,0"></Button>
                     <TextBlock Text="Something Missing?"/>
                     <Button Content="Send Feedback" Click="Button_Click_1" />
-                </toolkit:WrapPanel>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>

@@ -35,8 +35,8 @@ namespace TOOOT_Mobile
             //if (Session.Emp.StartDate == DateTime.Today)
             //    NavigationService.Navigate(new Uri("/NewHire.xaml", UriKind.Relative));  
             var li = new LicenseInformation();
-            if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
-                Ads.Visibility = System.Windows.Visibility.Visible;
+            //if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
+            //    Ads.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)

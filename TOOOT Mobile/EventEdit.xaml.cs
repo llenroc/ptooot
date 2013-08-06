@@ -25,8 +25,8 @@ namespace TOOOT_Mobile
             DateBox.Value = Session.EventForEditing.Date;
 
             var li = new LicenseInformation();
-            if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
-                Ads.Visibility = System.Windows.Visibility.Visible;
+            //if (li.IsTrial() || System.Diagnostics.Debugger.IsAttached)
+            //    Ads.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void prefillListPickers()
